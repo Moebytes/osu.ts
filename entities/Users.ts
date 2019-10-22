@@ -11,7 +11,7 @@ export class Users {
 
     public get = async (userResolvable: string | number) => {
         let response: OsuUser[]
-        if (String(userResolvable).match(/\d+/)) {
+        if (String(userResolvable).match(/\d{5,}/)) {
             const u = Number(String(userResolvable).match(/\d+/))
             response = await this.api.get(`/api/get_user`, {u, type: "id"})
         } else {
@@ -21,7 +21,7 @@ export class Users {
         return response[0]
     }
 
-    public generateSignature = async (params: OsuSignatureParams, dest?: string) => {
+    public sig = async (params: OsuSignatureParams, dest?: string) => {
         if (!params.colour) params.colour = "#ff1a58"
         if (!params.xpbar) params.xpbar = true
         if (!params.xpbarhex) params.xpbarhex = true
@@ -38,7 +38,7 @@ export class Users {
         return response.request.res.responseUrl
     }
 
-    public fetchBanner = async (userResolvable: string | number, dest?: string) => {
+    public banner = async (userResolvable: string | number, dest?: string) => {
         const user = await this.get(userResolvable)
         const html = await axios.get(`https://osu.ppy.sh/users/${user.user_id}`).then((r) => r.data)
         const bannerRegex = /(?<="cover_url":")(.*?)(?=",)/gm

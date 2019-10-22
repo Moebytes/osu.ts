@@ -51,3 +51,17 @@ export interface OsuBeatmap {
     diff_speed: string | null
     difficultyrating: string | null
 }
+
+export interface OsuReplayParams {
+    k?: string
+    m?: number
+    b?: string
+    u?: string
+    type?: "string" | "id"
+    mods?: string
+}
+
+export interface OsuReplay {
+    content: string
+    encoding: string
+}

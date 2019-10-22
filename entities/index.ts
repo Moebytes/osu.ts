@@ -1,2 +1,5 @@
 export * from "./Beatmaps"
 export * from "./Users"
+export * from "./Scores"
+export * from "./Multiplayer"
+export * from "./Util"
