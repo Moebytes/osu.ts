@@ -18,4 +18,6 @@ export default class Osu {
     }
 }
 
+module.exports.default = Osu
 export * from "./entities/index"
+export * from "./types/index"

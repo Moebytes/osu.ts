@@ -1,6 +1,6 @@
 import api from "../API"
 import {OsuScore, OsuScoreParams, OsuUserBest, OsuUserParams, OsuUserRecent} from "../types"
-import {Beatmaps} from "./index"
+import {Beatmaps, Users} from "./index"
 
 export class Scores {
     private readonly users = new Users(this.api)
