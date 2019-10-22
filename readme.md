@@ -60,7 +60,7 @@ async function useAPI() {
     const sig = await osu.users.sig({uname: "tenpii", colour: "#ff3381"}, "./sig")
 }
 ```
-### Getting scores and replays
+#### Getting scores and replays
 ```ts
 async function useAPI() {
     /*You can get a users best and recent scores.*/
@@ -76,7 +76,7 @@ async function useAPI() {
 }
 ```
 
-### Common Types
+#### Common Types
 
 <details>
 <summary>OsuBeatmap</summary>
