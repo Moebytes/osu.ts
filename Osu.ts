@@ -1,6 +1,9 @@
 import api from "./API"
 import {Beatmaps, Multiplayer, Scores, Users} from "./entities/index"
 
+/**
+ * The main class for interacting with the osu! API.
+ */
 export default class Osu {
     public static apiKey: string
     public api = new api(Osu.apiKey)

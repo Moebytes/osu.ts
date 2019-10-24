@@ -9,6 +9,9 @@ export class Beatmaps {
     private readonly util = new Util(this.api)
     constructor(private readonly api: api) {}
 
+    /**
+     * Gets an entire beatmap set or a single beatmap as an array.
+     */
     public get = async (beatmapResolvable: string | number) => {
         const {s, b} = this.util.parseID(beatmapResolvable)
         let response: OsuBeatmap[]
@@ -20,11 +23,17 @@ export class Beatmaps {
         return response
     }
 
+    /**
+     * Searches for beatmaps.
+     */
     public search = async (params?: OsuBeatmapParams) => {
         const response = await this.api.get(`/api/get_beatmaps`, params)
         return response as Promise<OsuBeatmap[]>
     }
 
+    /**
+     * Downloads a replay of a beatmap by a user. This endpoint has a high rate limit.
+     */
     public replay = async (userResolvable: string | number, beatmapResolvable: string | number, dest?: string, params?: OsuReplayParams) => {
         if (!params) params = {}
         const beatmap = await this.get(beatmapResolvable).then((b) => b[0])

@@ -3,6 +3,9 @@ import api from "../API"
 export class Util {
     constructor(private readonly api: api) {}
 
+    /**
+     * Parses the beatmap set and beatmap id out of a url.
+     */
     public parseID = (resolvable: string | number) => {
         if (String(resolvable).match(/\d{6,}/)) {
             const s = String(String(resolvable).match(/\d{1,}/))

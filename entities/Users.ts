@@ -9,6 +9,9 @@ const sigURL = "http://45.77.153.42/sig.php"
 export class Users {
     constructor(private readonly api: api) {}
 
+    /**
+     * Gets a user by username or ID/URL.
+     */
     public get = async (userResolvable: string | number) => {
         let response: OsuUser[]
         if (String(userResolvable).match(/\d{5,}/)) {
@@ -21,6 +24,9 @@ export class Users {
         return response[0]
     }
 
+    /**
+     * Generates a signature using osu!next signature generator. You can optionally also download it to a location.
+     */
     public sig = async (params: OsuSignatureParams, dest?: string) => {
         if (!params.colour) params.colour = "#ff1a58"
         if (!params.xpbar) params.xpbar = true
@@ -38,6 +44,9 @@ export class Users {
         return response.request.res.responseUrl
     }
 
+    /**
+     * Gets the banner of a user by scraping the html site. You can also optionally download it.
+     */
     public banner = async (userResolvable: string | number, dest?: string) => {
         const user = await this.get(userResolvable)
         const html = await axios.get(`https://osu.ppy.sh/users/${user.user_id}`).then((r) => r.data)

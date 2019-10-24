@@ -5,6 +5,9 @@ const apiURL = "https://osu.ppy.sh/"
 export default class API {
     constructor(public readonly apiKey: string) {}
 
+    /**
+     * Gets an endpoint from the osu! API.
+     */
     public get = async (endpoint: string, params?: any) => {
         if (!params) params = {}
         params.k = this.apiKey
