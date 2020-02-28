@@ -16,6 +16,7 @@ npm install osu.ts
 ```
 
 ### Useful Links
+- [**Osu.ts Documentation**](https://tenpi.github.io/osu.ts/)
 - [**Osu Api Wiki**](https://github.com/ppy/osu-api/wiki)
 
 ### Getting Started

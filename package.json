@@ -1,6 +1,6 @@
 {
   "name": "osu.ts",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Wrapper for the osu! API with typings",
   "main": "dist/osu.js",
   "types": "dist/osu.d.ts",

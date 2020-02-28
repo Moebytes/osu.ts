@@ -1,15 +1,15 @@
 export interface OsuBeatmapParams {
-    k: string
-    since: string
-    s: string
-    b: string
-    u: string
-    type: "string" | "id"
-    m: number
-    a: number
-    h: string
-    limit: number
-    mods: number
+    k?: string
+    since?: string
+    s?: string
+    b?: string
+    u?: string
+    type?: "string" | "id"
+    m?: number
+    a?: number
+    h?: string
+    limit?: number
+    mods?: number
 }
 
 export interface OsuBeatmap {
