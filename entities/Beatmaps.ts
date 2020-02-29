@@ -1,7 +1,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import api from "../API"
-import {OsuBeatmap, OsuBeatmapSet, OsuReplay, OsuReplayParams} from "../types"
+import {OsuBeatmap, OsuBeatmapParams, OsuBeatmapSet, OsuReplay, OsuReplayParams} from "../types"
 import {Users, Util} from "./index"
 
 export class Beatmaps {
@@ -12,8 +12,17 @@ export class Beatmaps {
     /**
      * Gets an entire beatmap set or a single beatmap as an array.
      */
-    public get = async (beatmapResolvable: string | number) => {
-        const {s, b} = this.util.parseID(beatmapResolvable)
+    public get = async (beatmapResolvable: string | number | OsuBeatmapParams) => {
+        let [s, b] = ["", ""]
+        if (beatmapResolvable.hasOwnProperty("b")) {
+            b = (beatmapResolvable as OsuBeatmapParams).b
+        } else if (beatmapResolvable.hasOwnProperty("s")) {
+            s = (beatmapResolvable as OsuBeatmapParams).s
+        } else {
+            const res = this.util.parseID(beatmapResolvable as string)
+            b = res.b
+            s = res.s
+        }
         let response: OsuBeatmap[]
         if (b) {
             response = await this.api.get(`/api/get_beatmaps`, {b})
