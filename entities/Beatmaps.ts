@@ -1,7 +1,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import api from "../API"
-import {OsuBeatmap, OsuBeatmapParams, OsuReplay, OsuReplayParams} from "../types"
+import {OsuBeatmap, OsuBeatmapSet, OsuReplay, OsuReplayParams} from "../types"
 import {Users, Util} from "./index"
 
 export class Beatmaps {
@@ -26,9 +26,31 @@ export class Beatmaps {
     /**
      * Searches for beatmaps.
      */
-    public search = async (params?: OsuBeatmapParams) => {
-        const response = await this.api.get(`/api/get_beatmaps`, params)
-        return response as Promise<OsuBeatmap[]>
+    public search = async (query: string) => {
+        const response = await this.api.search(query)
+        return response as Promise<OsuBeatmapSet[]>
+    }
+
+    /**
+     * Returns the beatmaps cover
+     */
+    public cover = (beatmapID: string | OsuBeatmap) {
+        let id = beatmapID
+        if (beatmapID.hasOwnProperty("title")) {
+            id = (beatmapID as OsuBeatmap).beatmapset_id
+        }
+        return `https://assets.ppy.sh/beatmaps/${id}/covers/cover@2x.jpg`
+    }
+
+    /**
+     * Returns the beatmaps thumbnail
+     */
+    public thumbnail = (beatmapID: string | OsuBeatmap) {
+        let id = beatmapID
+        if (beatmapID.hasOwnProperty("title")) {
+            id = (beatmapID as OsuBeatmap).beatmapset_id
+        }
+        return `https://b.ppy.sh/thumb/${id}l.jpg`
     }
 
     /**

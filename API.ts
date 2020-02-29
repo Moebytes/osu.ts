@@ -1,6 +1,7 @@
 import axios from "axios"
 
 const apiURL = "https://osu.ppy.sh/"
+const searchURL = "https://osu.ppy.sh/beatmapsets/search?q="
 
 export default class API {
     constructor(public readonly apiKey: string) {}
@@ -15,5 +16,13 @@ export default class API {
         endpoint = apiURL + endpoint
         const response = await axios.get(endpoint, {params, headers: {authorization: `Bearer ${this.apiKey}`}}).then((r) => r.data)
         return response
+    }
+
+    /**
+     * Searches for beatmaps.
+     */
+    public search = async (query: string) => {
+        const response = await axios.get(searchURL).then((r)=>r.data)
+        return response.beatmapsets
     }
 }

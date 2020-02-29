@@ -64,4 +64,15 @@ export class Users {
             return Promise.reject("A banner image was not found.")
         }
     }
+
+    /**
+     * Returns the link to the users avatar
+     */
+    public avatar = (userID: string | OsuUser) {
+        let id = userID
+        if (userID.hasOwnProperty("username")) {
+            id = (userID as OsuUser).user_id
+        }
+        return `http://s.ppy.sh/a/${id}`
+    }
 }
