@@ -68,7 +68,7 @@ export class Users {
     /**
      * Returns the link to the users avatar
      */
-    public avatar = (userID: string | OsuUser) {
+    public avatar = (userID: string | OsuUser) => {
         let id = userID
         if (userID.hasOwnProperty("username")) {
             id = (userID as OsuUser).user_id

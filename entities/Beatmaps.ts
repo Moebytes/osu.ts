@@ -34,7 +34,7 @@ export class Beatmaps {
     /**
      * Returns the beatmaps cover
      */
-    public cover = (beatmapID: string | OsuBeatmap) {
+    public cover = (beatmapID: string | OsuBeatmap) => {
         let id = beatmapID
         if (beatmapID.hasOwnProperty("title")) {
             id = (beatmapID as OsuBeatmap).beatmapset_id
@@ -45,7 +45,7 @@ export class Beatmaps {
     /**
      * Returns the beatmaps thumbnail
      */
-    public thumbnail = (beatmapID: string | OsuBeatmap) {
+    public thumbnail = (beatmapID: string | OsuBeatmap) => {
         let id = beatmapID
         if (beatmapID.hasOwnProperty("title")) {
             id = (beatmapID as OsuBeatmap).beatmapset_id
