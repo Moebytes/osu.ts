@@ -1,11 +1,11 @@
 {
   "name": "osu.ts",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Wrapper for the osu! API with typings",
   "main": "dist/osu.js",
   "types": "dist/osu.d.ts",
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "start": "tsc && node dist/start.js",
     "test": "ts-mocha --timeout 30000 -p tsconfig.json test/**/*.spec.ts",
     "docs": "typedoc --out docs ./",
     "prepublishOnly": "tsc"
