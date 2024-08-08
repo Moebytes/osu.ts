@@ -1,6 +1,6 @@
 <div align="left">
   <p>
-    <a href="https://tenpi.github.io/osu.ts/"><img src="https://raw.githubusercontent.com/Tenpi/osu.ts/master/images/osu.tslogo.gif" width="500" /></a>
+    <a href="https://moebits.github.io/osu.ts/"><img src="https://raw.githubusercontent.com/Moebits/osu.ts/master/images/osu.tslogo.gif" width="500" /></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/osu.ts/"><img src="https://nodei.co/npm/osu.ts.png" /></a>
@@ -16,7 +16,7 @@ npm install osu.ts
 ```
 
 ### Useful Links
-- [**Osu.ts Documentation**](https://tenpi.github.io/osu.ts/)
+- [**Osu.ts Documentation**](https://moebits.github.io/osu.ts/)
 - [**Osu Api Wiki**](https://github.com/ppy/osu-api/wiki)
 
 ### Getting Started
@@ -48,25 +48,25 @@ async function useAPI() {
 async function useAPI() {
     /*Getting a user is easy, just pass in their name or ID (which is parsed from the URL).
     If for some reason the user's name is only numbers, its better to use the URL.*/
-    const user = await osu.users.get("tenpii")
-    const userByURL = await osu.users.get("https://osu.ppy.sh/users/12584590")
+    const user = await osu.users.get("vaxei")
+    const userByURL = await osu.users.get("https://osu.ppy.sh/users/4787150")
 
     /*Getting the banner is not available in the API, but you can use fetchBanner() to retrieve it.
     Optionally, if you pass in a path it will be downloaded to that location.*/
-    const banner = await osu.users.banner("tenpii", "./banner")
+    const banner = await osu.users.banner("vaxei", "./banner")
 
     /*You can also generate a signature using the osu!next signature generator. Important 
     parameters to pass are the uname and colour (yes, with a u). If you pass in a path it 
     will be downloaded to that location as well.*/
-    const sig = await osu.users.sig({uname: "tenpii", colour: "#ff3381"}, "./sig")
+    const sig = await osu.users.sig({uname: "vaxei", colour: "#ff3381"}, "./sig")
 }
 ```
 #### Getting scores and replays
 ```ts
 async function useAPI() {
     /*You can get a users best and recent scores.*/
-    const best = await osu.scores.best("tenpii")
-    const recent = await osu.scores.recent("tenpii")
+    const best = await osu.scores.best("vaxei")
+    const recent = await osu.scores.recent("vaxei")
 
     /*And the scores on a beatmap.*/
     const scores = await osu.scores.beatmap("https://osu.ppy.sh/beatmapsets/1013140#osu/2120669")
