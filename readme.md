@@ -1,6 +1,6 @@
 <div align="left">
   <p>
-    <a href="https://moebits.github.io/osu.ts/"><img src="https://raw.githubusercontent.com/Moebits/osu.ts/master/images/osu.tslogo.gif" width="500" /></a>
+    <a href="https://moebits.github.io/osu.ts/"><img src="https://raw.githubusercontent.com/Moebytes/osu.ts/master/images/osu.tslogo.gif" width="500" /></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/osu.ts/"><img src="https://nodei.co/npm/osu.ts.png" /></a>
